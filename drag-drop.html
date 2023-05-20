@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercice - drag-drop</title>
+    <link rel="stylesheet" href="css/drag-drop.css" />
+    <script src="js/drag-drop.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Exercise - drag-drop</h1>
+      </header>
+      <main>
+        <div id="container">
+          <div
+            id="a"
+            draggable="true"
+            class="item"
+            ondragstart="dragstart_handler(event)"
+          >
+            A
+          </div>
+          <div class="item" ondragstart="dragstart_handler(event)" id="b">
+            B
+          </div>
+          <div
+            id="c"
+            draggable="true"
+            class="item"
+            ondragstart="dragstart_handler(event)"
+          >
+            C
+          </div>
+          <div
+            id="d"
+            draggable="true"
+            class="item"
+            ondragstart="dragstart_handler(event)"
+          >
+            D
+          </div>
+        </div>
+
+        <div
+          id="dropArea"
+          ondrop="drop_handler(event)"
+          ondragover="dragover_handler(event)"
+        >
+          <span>Drop the green items here</span>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
