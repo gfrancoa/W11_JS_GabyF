@@ -1,0 +1,223 @@
+@font-face {
+  font-family: "spongebob";
+  src: url("SpongeboyMebob.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "spongebob", cursive;
+  box-sizing: border-box;
+}
+
+/*BACKGROUND*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  /* height: 100%; */
+  width: 100%;
+  background: linear-gradient(180deg, #04fafd, 5%, #119dff, 50%, #030423);
+  position: absolute;
+}
+
+.wrapper .bubble {
+  height: 60px;
+  width: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  animation: 4s linear infinite;
+}
+div .dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+.wrapper .bubble:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+.wrapper .bubble:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation: animate 10s linear infinite;
+}
+.wrapper .bubble:nth-child(3) {
+  top: 40%;
+  left: 40%;
+  animation: animate 3s linear infinite;
+}
+.wrapper .bubble:nth-child(4) {
+  top: 66%;
+  left: 30%;
+  animation: animate 7s linear infinite;
+}
+.wrapper .bubble:nth-child(5) {
+  top: 90%;
+  left: 10%;
+  animation: animate 9s linear infinite;
+}
+.wrapper .bubble:nth-child(6) {
+  top: 30%;
+  left: 60%;
+  animation: animate 5s linear infinite;
+}
+.wrapper .bubble:nth-child(7) {
+  top: 70%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+.wrapper .bubble:nth-child(8) {
+  top: 75%;
+  left: 60%;
+  animation: animate 10s linear infinite;
+}
+.wrapper .bubble:nth-child(9) {
+  top: 50%;
+  left: 50%;
+  animation: animate 6s linear infinite;
+}
+.wrapper .bubble:nth-child(10) {
+  top: 45%;
+  left: 20%;
+  animation: animate 10s linear infinite;
+}
+.wrapper .bubble:nth-child(11) {
+  top: 10%;
+  left: 90%;
+  animation: animate 9s linear infinite;
+}
+.wrapper .bubble:nth-child(12) {
+  top: 20%;
+  left: 70%;
+  animation: animate 7s linear infinite;
+}
+.wrapper .bubble:nth-child(13) {
+  top: 20%;
+  left: 20%;
+  animation: animate 8s linear infinite;
+}
+.wrapper .bubble:nth-child(14) {
+  top: 60%;
+  left: 5%;
+  animation: animate 6s linear infinite;
+}
+.wrapper .bubble:nth-child(15) {
+  top: 90%;
+  left: 80%;
+  animation: animate 9s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(70deg);
+  }
+  100% {
+    transform: scale(1.3) translateY(-100px) rotate(360deg);
+  }
+}
+
+/*CARDS*/
+p,
+h1,
+h3 {
+  text-align: center;
+  margin: 0.5rem;
+}
+.button-container,
+.text-container {
+  text-align: center;
+  margin: 1rem;
+}
+
+.text-container span {
+  color: white;
+  font-size: large;
+}
+
+button {
+  padding: 1rem;
+  width: 200px;
+  border-radius: 10px;
+  font-size: medium;
+}
+
+button:hover {
+  background-color: #030423;
+  color: white;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  /* flex-wrap: wrap;
+  width: 70%; */
+}
+.card-img {
+  height: 100px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+/*FLIP CARDS*/
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+  margin: 1rem;
+}
+/* flip the pane when hovered */
+.flip-container.visible .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+  height: 100px;
+  width: 150px;
+}
+
+.flip-container:hover {
+  cursor: url("Spongebob.cur"), auto;
+  /* cursor: pointer; */
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
