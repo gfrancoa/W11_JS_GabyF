@@ -1,0 +1,86 @@
+<html>
+  <body>
+    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+
+      var pdown = true;
+      var gx = 500;
+      var gy = 500;
+      var angle = -90;
+
+      function goto(x, y) {
+        if (pdown) {
+          ctx.beginPath();
+          ctx.moveTo(gx, gy);
+        }
+        gx = x;
+        gy = y;
+        if (pdown) {
+          ctx.lineTo(gx, gy);
+          ctx.stroke();
+        }
+      }
+
+      var seed = 0;
+      function random() {
+        var x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
+        //return Math.random();
+      }
+      function randInt(n, m) {
+        return n + Math.floor((m - n) * random());
+      }
+
+      function penup() {
+        pdown = false;
+      }
+
+      function pendown() {
+        pdown = true;
+      }
+
+      function forward(distance) {
+        if (pdown) {
+          ctx.beginPath();
+          ctx.moveTo(gx, gy);
+        }
+        gx = gx + distance * Math.cos((angle * 2 * Math.PI) / 360);
+        gy = gy + distance * Math.sin((angle * 2 * Math.PI) / 360);
+        if (pdown) {
+          ctx.lineTo(gx, gy);
+          ctx.stroke();
+        }
+      }
+
+      function left(deg) {
+        angle -= deg;
+      }
+      function right(deg) {
+        angle += deg;
+      }
+      // START EDITING AFTER THIS LINE!!!
+
+      let i = 0;
+
+      while (i < 7) {
+        let j = 0;
+        while (j < 7) {
+          penup();
+          goto(i * 50, j * 50);
+          pendown();
+          right(15);
+          forward(20);
+          right(90);
+          forward(20);
+
+          j++;
+        }
+        i++;
+      }
+
+      // NO EDITING AFTER THIS LINE!!!
+    </script>
+  </body>
+</html>

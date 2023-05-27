@@ -1,0 +1,19 @@
+table,
+td {
+  border: 1px black solid;
+  border-collapse: collapse;
+}
+
+table {
+  margin-top: 30px;
+}
+
+td {
+  padding: 10px;
+}
+
+input,
+label,
+button {
+  display: block;
+}
